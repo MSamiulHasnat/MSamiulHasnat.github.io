@@ -40,33 +40,57 @@ a:hover {
 /* Header */
 .site-header {
     background-color: #fff;
-    border-bottom: 1px solid var(--border-color);
-    padding: 20px 0;
-    margin-bottom: 30px;
+    padding: 40px 0 20px;
+    text-align: center;
 }
 
 .site-title {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--primary-color);
     text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+    font-family: "Georgia", serif;
 }
 
+.site-description {
+    color: var(--muted-color);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Navigation */
 .site-nav {
-    float: right;
-    margin-top: 10px;
+    background-color: #fff;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+    padding: 15px 0;
 }
 
-.page-link {
-    margin-left: 20px;
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.nav-list a {
     color: var(--muted-color);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
-.page-link:hover {
+.nav-list a:hover {
     color: var(--accent-color);
     text-decoration: none;
 }
