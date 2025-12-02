@@ -1,0 +1,42 @@
+<div class="sidebar">
+  <div class="widget about-me">
+    <h3 class="widget-title">About Me</h3>
+    <div class="widget-content">
+      <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Profile Picture" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
+      <p>{{ site.description }}</p>
+      <div class="social-links">
+        <!-- Add social links here later -->
+      </div>
+    </div>
+  </div>
+
+  <div class="widget search">
+    <h3 class="widget-title">Search This Blog</h3>
+    <div class="widget-content">
+      <form action="/search" method="get">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="widget recent-posts">
+    <h3 class="widget-title">Recent Posts</h3>
+    <ul class="widget-content">
+      {% for post in site.posts limit:5 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="widget categories">
+    <h3 class="widget-title">Sections</h3>
+    <ul class="widget-content">
+        <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+        <li><a href="{{ '/photography/' | relative_url }}">Photography</a></li>
+        <li><a href="{{ '/hobbies/' | relative_url }}">Hobbies</a></li>
+    </ul>
+  </div>
+</div>

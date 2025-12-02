@@ -3,28 +3,22 @@ layout: default
 ---
 
 <div class="home">
-    <h1 class="page-heading">Hi, I'm MSamiulHasnat.</h1>
-    <p class="intro-text">{{ site.description }}</p>
-
-    <div class="cta-buttons">
-        <a href="{{ " /blog/" | relative_url }}" class="btn">Read my Blog</a>
-        <a href="{{ " /photography/" | relative_url }}" class="btn btn-outline">View Gallery</a>
-    </div>
-
-    <h2 class="section-heading">My Life</h2>
-    <div class="life-events">
-        {% for event in site.data.life.events %}
-        <div class="event-item">
-            <div class="event-marker"></div>
-            <div class="event-content">
-                <span class="event-date">{{ event.date | date: "%Y-%m-%d" }}</span>
-                <h3 class="event-title">{{ event.title }}</h3>
-                <p class="event-desc">{{ event.description }}</p>
-                {% if event.image %}
-                <img src="{{ event.image | relative_url }}" alt="{{ event.title }}" class="event-image">
-                {% endif %}
-            </div>
+  {% for post in site.posts %}
+    <article class="post-content">
+      <header class="post-header">
+        <h2 class="post-title">
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        <div class="post-meta">
+          {{ post.date | date: "%A, %B %-d, %Y" }}
+          {% if post.author %} • {{ post.author }}{% endif %}
         </div>
-        {% endfor %}
-    </div>
+      </header>
+
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+        <p><a href="{{ post.url | relative_url }}" class="read-more">Read more...</a></p>
+      </div>
+    </article>
+  {% endfor %}
 </div>
