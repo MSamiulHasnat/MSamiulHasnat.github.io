@@ -1,0 +1,45 @@
+title: MSamiulHasnat
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Personal portfolio of MSamiulHasnat. Photographer, Researcher, Content Creator.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://msamiulhasnat.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+collections:
+  research:
+    output: true
+    permalink: /research/:path/
+  photography:
+    output: true
+    permalink: /photography/:path/
+  hobbies:
+    output: true
+    permalink: /hobbies/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "photography"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "hobbies"
+    values:
+      layout: "page"
