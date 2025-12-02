@@ -1,3 +1,5 @@
-title: "MSamiulHasnat Portfolio"
-theme: jekyll-theme-minima
-description: "My personal portfolio and blog"
+title: My Portfolio
+description: A personal portfolio and blog
+theme: minima
+plugins:
+  - jekyll-feed
