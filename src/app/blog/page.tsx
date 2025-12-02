@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-import { Button } from "@/components/ui/button";
 
 export default function BlogPage() {
     const posts = getAllPosts();
