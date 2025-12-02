@@ -1,0 +1,34 @@
+name: Auto-Merge Copilot PRs
+
+on: pull_request_target
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-approve-and-merge:
+    runs-on: ubuntu-latest
+    # Check if the PR author is Copilot Workspace OR Dependabot
+    if: |
+      github.actor == 'copilot-workspace[bot]' || 
+      github.actor == 'dependabot[bot]' ||
+      github.actor == 'copilot-autofix[bot]'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Auto-Approve PR
+        # Reviews the PR and gives it an "APPROVE" status
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Enable Auto-Merge
+        # Sets the PR to merge automatically once checks pass
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
